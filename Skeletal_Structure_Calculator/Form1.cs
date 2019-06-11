@@ -75,6 +75,59 @@ namespace Skeletal_Structure_Calculator
                 ME1input.ReadOnly = true;
                 NRRinput.ReadOnly = true;
                 Pinput.ReadOnly = true;
+
+                Graphics g = pictureBox1.CreateGraphics();
+                Font font = new Font("Arial", 12);
+                SolidBrush brush = new SolidBrush(Color.Black);
+
+                //axis1
+                g.DrawLine(new Pen(Color.Black, 1), 225, 225, 48.225f, 326.8f);
+                g.DrawLine(new Pen(Color.Black, 1), 225, 225, 401.775f, 369.525f);
+                g.DrawLine(new Pen(Color.Black, 1), 225, 225, 225, 20.625f);
+                g.DrawString("x", font, brush, 402, 370);
+                g.DrawString("y", font, brush, 220, 5);
+                g.DrawString("z", font, brush, 40, 326);
+                //axis2
+                g.DrawLine(new Pen(Color.Black, 1), 675, 225, 498.225f, 326.8f);
+                g.DrawLine(new Pen(Color.Black, 1), 675, 225, 851.775f, 369.525f);
+                g.DrawLine(new Pen(Color.Black, 1), 675, 225, 675, 20.625f);
+                g.DrawString("x", font, brush, 852, 370);
+                g.DrawString("y", font, brush, 670, 5);
+                g.DrawString("z", font, brush, 490, 326);
+
+                for (int i = 0; i < cal.NE; ++i)
+                {
+                    //note the axis direction
+                    //fig1
+                    double x1 = cal.Z[cal.ME[0][i] - 1];
+                    double x2 = cal.Z[cal.ME[1][i] - 1];
+                    double y1 = cal.X[cal.ME[0][i] - 1];
+                    double y2 = cal.X[cal.ME[1][i] - 1];
+                    double z1 = cal.Y[cal.ME[0][i] - 1];
+                    double z2 = cal.Y[cal.ME[1][i] - 1];
+                    double X1 = 225 - (0.7071 * x1 - 0.7071 * y1) * 50;
+                    double X2 = 225 - (0.7071 * x2 - 0.7071 * y2) * 50;
+                    double Z1 = 225 - (-0.4072 * x1 - 0.5781 * y1 + 0.8175 * z1) * 50;
+                    double Z2 = 225 - (-0.4072 * x2 - 0.5781 * y2 + 0.8175 * z2) * 50;
+                    g.DrawLine(new Pen(Color.Black, 3), Convert.ToSingle(X1), Convert.ToSingle(Z1), Convert.ToSingle(X2), Convert.ToSingle(Z2));
+                    //fig2
+                    X1 = 675 - (0.7071 * x1 - 0.7071 * y1) * 50;
+                    X2 = 675 - (0.7071 * x2 - 0.7071 * y2) * 50;
+                    Z1 = 225 - (-0.4072 * x1 - 0.5781 * y1 + 0.8175 * z1) * 50;
+                    Z2 = 225 - (-0.4072 * x2 - 0.5781 * y2 + 0.8175 * z2) * 50;
+                    g.DrawLine(new Pen(Color.Black, 2), Convert.ToSingle(X1), Convert.ToSingle(Z1), Convert.ToSingle(X2), Convert.ToSingle(Z2));
+                    x1 = cal.Z[cal.ME[0][i] - 1] + 1000 * cal.P[(cal.ME[0][i] - 1) * 3 + 2];
+                    x2 = cal.Z[cal.ME[1][i] - 1] + 1000 * cal.P[(cal.ME[1][i] - 1) * 3 + 2];
+                    y1 = cal.X[cal.ME[0][i] - 1] + 1000 * cal.P[(cal.ME[0][i] - 1) * 3];
+                    y2 = cal.X[cal.ME[1][i] - 1] + 1000 * cal.P[(cal.ME[1][i] - 1) * 3];
+                    z1 = cal.Y[cal.ME[0][i] - 1] + 1000 * cal.P[(cal.ME[0][i] - 1) * 3 + 1];
+                    z2 = cal.Y[cal.ME[1][i] - 1] + 1000 * cal.P[(cal.ME[1][i] - 1) * 3 + 1];
+                    X1 = 675 - (0.7071 * x1 - 0.7071 * y1) * 50;
+                    X2 = 675 - (0.7071 * x2 - 0.7071 * y2) * 50;
+                    Z1 = 225 - (-0.4072 * x1 - 0.5781 * y1 + 0.8175 * z1) * 50;
+                    Z2 = 225 - (-0.4072 * x2 - 0.5781 * y2 + 0.8175 * z2) * 50;
+                    g.DrawLine(new Pen(Color.Red, 3), Convert.ToSingle(X1), Convert.ToSingle(Z1), Convert.ToSingle(X2), Convert.ToSingle(Z2));
+                }
             }
             catch (Exception)
             {

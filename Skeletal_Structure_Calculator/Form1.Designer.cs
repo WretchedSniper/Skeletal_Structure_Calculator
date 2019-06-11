@@ -77,8 +77,11 @@
             this.FYi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FZi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reset = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // NDinput
@@ -119,12 +122,13 @@
             // 
             // Compute
             // 
+            this.Compute.BackColor = System.Drawing.Color.Transparent;
             this.Compute.Location = new System.Drawing.Point(383, 10);
             this.Compute.Name = "Compute";
             this.Compute.Size = new System.Drawing.Size(65, 21);
             this.Compute.TabIndex = 0;
             this.Compute.Text = "计算";
-            this.Compute.UseVisualStyleBackColor = true;
+            this.Compute.UseVisualStyleBackColor = false;
             this.Compute.Click += new System.EventHandler(this.Compute_Click);
             // 
             // label3
@@ -403,7 +407,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(677, 250);
+            this.dataGridView1.Size = new System.Drawing.Size(687, 250);
             this.dataGridView1.TabIndex = 33;
             // 
             // id
@@ -461,12 +465,12 @@
             this.FXi,
             this.FYi,
             this.FZi});
-            this.dataGridView2.Location = new System.Drawing.Point(466, 270);
+            this.dataGridView2.Location = new System.Drawing.Point(466, 280);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(677, 190);
+            this.dataGridView2.Size = new System.Drawing.Size(687, 180);
             this.dataGridView2.TabIndex = 34;
             // 
             // node_id
@@ -514,19 +518,30 @@
             // 
             // Reset
             // 
+            this.Reset.BackColor = System.Drawing.Color.Transparent;
             this.Reset.Location = new System.Drawing.Point(383, 40);
             this.Reset.Name = "Reset";
             this.Reset.Size = new System.Drawing.Size(65, 21);
             this.Reset.TabIndex = 35;
             this.Reset.Text = "重置";
-            this.Reset.UseVisualStyleBackColor = true;
+            this.Reset.UseVisualStyleBackColor = false;
             this.Reset.Click += new System.EventHandler(this.Reset_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(6, 477);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1147, 450);
+            this.pictureBox1.TabIndex = 36;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 481);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1159, 934);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Reset);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
@@ -570,6 +585,7 @@
             this.Text = "杆系结构计算程序(By 张晓宇)";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -626,6 +642,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FYi;
         private System.Windows.Forms.DataGridViewTextBoxColumn FZi;
         private System.Windows.Forms.Button Reset;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
